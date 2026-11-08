@@ -2,14 +2,16 @@ from aiogram import Router
 from aiogram.filters import CommandStart
 from aiogram.types import Message
 
+from app.services.user_service import UserService
+
 router = Router()
 
 
 @router.message(CommandStart())
 async def start_handler(message: Message):
 
-    await message.answer(
-        f"Welcome, {message.from_user.first_name}!\n\n"
-        "Your Telegram bot is running.\n"
-        "Use /help to see available commands."
+    response = UserService.get_welcome_message(
+        message.from_user.first_name
     )
+
+    await message.answer(response)
