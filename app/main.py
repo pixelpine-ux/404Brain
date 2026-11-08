@@ -15,6 +15,12 @@ from app.handlers import (
 async def main():
 
     bot = Bot(token=BOT_TOKEN)
+    await bot.set_my_commands([
+        BotCommand(command="start", description="Start the bot"),
+        BotCommand(command="help", description="Show help"),
+        BotCommand(command="about", description="About the bot"),
+        BotCommand(command="messages", description="Message functionality"),
+    ])
 
     dp = Dispatcher()
 

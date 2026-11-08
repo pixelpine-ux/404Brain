@@ -13,6 +13,7 @@ async def help_handler(message: Message):
         "/start - Start the bot\n"
         "/help - Show available commands\n"
         "/about - About this bot"
+        "/messages - Message functionality"
     )
 
 
