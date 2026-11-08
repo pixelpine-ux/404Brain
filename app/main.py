@@ -2,6 +2,7 @@ import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher
+from aiogram.types import BotCommand
 
 from app.config import BOT_TOKEN
 
@@ -15,6 +16,8 @@ from app.handlers import (
 async def main():
 
     bot = Bot(token=BOT_TOKEN)
+
+    # Register Telegram commands
     await bot.set_my_commands([
         BotCommand(command="start", description="Start the bot"),
         BotCommand(command="help", description="Show help"),
